@@ -1,6 +1,6 @@
 # src/models/wrapper.py
 import torch
-from .cnn import SmallSpecCNN
+from .cnn_model import SmallSpecCNN
 import os
 
 class ModelWrapper:

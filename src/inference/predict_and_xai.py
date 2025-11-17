@@ -3,7 +3,7 @@ import torch
 import numpy as np
 import os
 from src.audio.features import load_audio, compute_mel_spectrogram, normalize_spectrogram
-from src.models.cnn import SmallSpecCNN
+from src.model.cnn_model import SmallSpecCNN
 from src.xai.gradcam import GradCAM, overlay_and_save
 
 def find_last_conv(model):

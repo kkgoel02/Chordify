@@ -2,7 +2,7 @@
 import torch
 from torch import nn, optim
 from torch.utils.data import DataLoader
-from src.models.wrapper import ModelWrapper
+from src.model.wrapper import ModelWrapper
 from tqdm import tqdm
 import os
 
