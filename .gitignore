@@ -127,3 +127,16 @@ logs/
 # Uncomment if you use PyCharm or VS Code workspace files:
 # .vscode/
 # .idea/
+
+# Data and checkpoints
+data/raw/
+data/processed/
+*.pt
+*.ckpt
+*.h5
+
+# Notebooks checkpoints
+notebooks/.ipynb_checkpoints/
+
+# Logs
+logs/
