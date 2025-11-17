@@ -1,142 +1,90 @@
-# ==============================
-#  Python + ML Project .gitignore
-#  Optimized for: CNN + RL + Streamlit + VS Code
-# ==============================
-
-# --- Python Bytecode ---
+# ============================
+# Python
+# ============================
 __pycache__/
 *.py[cod]
 *$py.class
 
-# --- Environments ---
+# Virtual environment
+.env/
 .venv/
-venv/
 env/
-ENV/
-env.bak/
-venv.bak/
-.conda/
-.python-version
+venv/
 
-# --- Virtual Environment Config ---
-.env
-.envrc
-.pyenv
-.pdm-python
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+.notebooks_cache/
+*.nbconvert.ipynb
 
-# --- Packages / Build Artifacts ---
-build/
-dist/
-*.egg-info/
-.eggs/
-*.egg
-lib/
-lib64/
-parts/
-sdist/
-wheels/
-share/python-wheels/
+# ============================
+# Project-specific ignores
+# ============================
 
-# --- Compiled / C Extensions ---
-*.so
-*.pyd
-*.dll
-
-# --- Logs / Coverage ---
-*.log
-htmlcov/
-.tox/
-.nox/
-.coverage
-.cache/
-.pytest_cache/
-nosetests.xml
-coverage.xml
-
-# --- Data / Models / Audio ---
+# Data (McGill-Billboard dataset)
 data/
-datasets/
-models/
-*.pth
-*.pt
-*.h5
-*.joblib
+!data/README.md           # allow describing dataset location
+
+# Audio datasets
 *.wav
 *.mp3
 *.flac
-*.zip
-*.tar
-*.gz
-*.csv
-*.json
+*.ogg
+
+# Annotations (if ever generated)
+*.jams
+*.lab
+
+# Checkpoints / weights
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+
+# XAI output images
+outputs/
+*.png
+*.jpg
+
+# Model logs
+logs/
+tensorboard/
+tb_logs/
+
+# Large numpy / torch dumps
 *.npy
 *.npz
+*.ptl
+*.pkl
 
-# --- Jupyter / Notebooks ---
-.ipynb_checkpoints/
+# ============================
+# Build / packaging
+# ============================
+build/
+dist/
+*.egg-info/
+*.egg
 
-# --- IDEs / Editors ---
+# ============================
+# IDE / Editor junk
+# ============================
+# VSCode
 .vscode/
-.idea/
-.spyproject/
-.ropeproject/
+.history/
 
-# --- System Files ---
+# PyCharm / JetBrains
+.idea/
+*.iml
+
+# ============================
+# OS generated files
+# ============================
 .DS_Store
 Thumbs.db
-desktop.ini
 
-# --- Streamlit / Cache ---
-.streamlit/
-.streamlit-cache/
-.stcache/
-.cache/
-
-# --- Temporary Files ---
-tmp/
-temp/
-*.bak
+# ============================
+# Misc
+# ============================
+*.backup
+*.tmp
 *.swp
 *.swo
-
-# --- Documentation Build ---
-docs/_build/
-site/
-
-# --- MyPy / Type Checking ---
-.mypy_cache/
-.pyre/
-.pytype/
-cython_debug/
-
-# --- Reinforcement Learning / Sim Logs ---
-runs/
-checkpoints/
-tensorboard/
-logs/
-
-# --- Ruff / Linting ---
-.ruff_cache/
-
-# --- Cursor / Abstra / Others ---
-.cursorignore
-.cursorindexingignore
-.abstra/
-
-# --- Optional --- 
-# Uncomment if you use PyCharm or VS Code workspace files:
-# .vscode/
-# .idea/
-
-# Data and checkpoints
-data/raw/
-data/processed/
-*.pt
-*.ckpt
-*.h5
-
-# Notebooks checkpoints
-notebooks/.ipynb_checkpoints/
-
-# Logs
-logs/

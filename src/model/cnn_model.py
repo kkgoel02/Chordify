@@ -1,24 +1,28 @@
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv1D, MaxPooling1D, Flatten, Dense, Dropout
-from tensorflow.keras.optimizers import Adam
+# src/models/cnn.py
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
 
-def build_cnn_model(input_shape, num_classes):
-    model = Sequential([
-        Conv1D(64, 3, activation='relu', input_shape=input_shape),
-        MaxPooling1D(2),
-        Dropout(0.3),
+class SmallSpecCNN(nn.Module):
+    def __init__(self, n_classes):
+        super().__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(1, 16, kernel_size=(5,5), padding=2), nn.BatchNorm2d(16), nn.ReLU(),
+            nn.MaxPool2d((2,2)),
+            nn.Conv2d(16, 32, kernel_size=(3,3), padding=1), nn.BatchNorm2d(32), nn.ReLU(),
+            nn.MaxPool2d((2,2)),
+            nn.Conv2d(32, 64, kernel_size=(3,3), padding=1), nn.BatchNorm2d(64), nn.ReLU(),
+        )
+        self.classifier = nn.Sequential(
+            nn.AdaptiveAvgPool2d((1,1)),
+            nn.Flatten(),
+            nn.Linear(64, 128),
+            nn.ReLU(),
+            nn.Dropout(0.3),
+            nn.Linear(128, n_classes),
+        )
 
-        Conv1D(128, 3, activation='relu'),
-        MaxPooling1D(2),
-        Dropout(0.3),
-
-        Flatten(),
-        Dense(128, activation='relu'),
-        Dropout(0.4),
-        Dense(num_classes, activation='softmax')
-    ])
-
-    model.compile(optimizer=Adam(1e-3),
-                  loss='sparse_categorical_crossentropy',
-                  metrics=['accuracy'])
-    return model
+    def forward(self, x):
+        feat = self.features(x)
+        out = self.classifier(feat)
+        return out
