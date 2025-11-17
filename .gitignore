@@ -1,90 +1,21 @@
-# ============================
 # Python
-# ============================
 __pycache__/
-*.py[cod]
-*$py.class
-
-# Virtual environment
-.env/
-.venv/
-env/
+*.pyc
 venv/
+.venv/
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-.notebooks_cache/
-*.nbconvert.ipynb
-
-# ============================
-# Project-specific ignores
-# ============================
-
-# Data (McGill-Billboard dataset)
+# Data
 data/
-!data/README.md           # allow describing dataset location
+!data/.gitkeep
 
-# Audio datasets
-*.wav
-*.mp3
-*.flac
-*.ogg
-
-# Annotations (if ever generated)
-*.jams
-*.lab
-
-# Checkpoints / weights
+# Checkpoints & outputs
 checkpoints/
-*.pt
-*.pth
-*.ckpt
-
-# XAI output images
 outputs/
-*.png
-*.jpg
 
-# Model logs
-logs/
-tensorboard/
-tb_logs/
+# Notebook
+.ipynb_checkpoints/
 
-# Large numpy / torch dumps
-*.npy
-*.npz
-*.ptl
-*.pkl
-
-# ============================
-# Build / packaging
-# ============================
-build/
-dist/
-*.egg-info/
-*.egg
-
-# ============================
-# IDE / Editor junk
-# ============================
-# VSCode
-.vscode/
-.history/
-
-# PyCharm / JetBrains
-.idea/
-*.iml
-
-# ============================
-# OS generated files
-# ============================
+# OS/editor
 .DS_Store
-Thumbs.db
-
-# ============================
-# Misc
-# ============================
-*.backup
-*.tmp
-*.swp
-*.swo
+.vscode/
+.idea/
